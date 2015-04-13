@@ -1,0 +1,29 @@
+  <%
+    @user = params["type"].to_i
+	@computer = [0, 1, 2].sample
+	if @computer == 0
+		@cw = "Rock"
+	elsif @computer == 1
+		@cw = "Paper"
+	else
+		@cw = "Scissors"
+	end
+	if @user == 0
+		@uw = "Rock"
+	elsif @user == 1
+		@uw = "Paper"
+	else
+		@uw = "Scissors"
+	end
+	if @user == @computer
+		@result = "It's a tie!"
+	elsif (@user == (@computer + 1)) or (@user == 0 and @computer == 2)
+		@result = "You win!"
+	else
+		@result = "Computer wins..."
+    end
+	%>
+  <h1>Your weapon: <%= @uw %><h1>
+  <h1>Computer's weapon: <%= @cw %><h1>
+  <h1><%= @result %><h1>
+  <h2><a href="rps">Restart</a><h2>
